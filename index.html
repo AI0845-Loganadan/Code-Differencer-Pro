@@ -4,9 +4,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Differencer Pro</title>
+    <title>Code Differencer Pro — Free Online Code Diff & Comparison Tool</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Code Differencer Pro is a free online tool to compare and diff code side-by-side or in unified view. Instantly find changes between two code files with syntax highlighting, line matching, and word-level diffs. No sign-up required.">
+    <meta name="keywords" content="code diff, code comparison, online diff tool, code differencer, compare code, side by side diff, unified diff, text diff, file comparison, code changes, diff checker, free diff tool">
+    <meta name="author" content="Loganadan M">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#3b82f6">
+
+    <!-- Canonical URL — UPDATE this to your actual deployed URL -->
+    <link rel="canonical" href="https://ai0845-loganadan.github.io/Code-Differencer-Pro/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Code Differencer Pro — Free Online Code Diff Tool">
+    <meta property="og:description" content="Compare code side-by-side or unified. Instantly find changes between two code files with syntax highlighting, line & word matching. Free, no sign-up.">
+    <meta property="og:url" content="https://ai0845-loganadan.github.io/Code-Differencer-Pro/">
+    <meta property="og:site_name" content="Code Differencer Pro">
+    <meta property="og:image" content="https://ai0845-loganadan.github.io/Code-Differencer-Pro/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Code Differencer Pro — compare code changes side-by-side">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Code Differencer Pro — Free Online Code Diff Tool">
+    <meta name="twitter:description" content="Compare code side-by-side or unified. Instantly find changes between two code files with syntax highlighting. Free, no sign-up.">
+    <meta name="twitter:image" content="https://ai0845-loganadan.github.io/Code-Differencer-Pro/og-image.png">
+    <meta name="twitter:image:alt" content="Code Differencer Pro — compare code changes side-by-side">
+
+    <!-- JSON-LD Structured Data for Rich Search Results -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Code Differencer Pro",
+        "url": "https://ai0845-loganadan.github.io/Code-Differencer-Pro/",
+        "description": "A free online tool to compare and diff code side-by-side or in unified view. Find changes between two code files with syntax highlighting and word-level diffs.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Loganadan M"
+        },
+        "featureList": [
+            "Side-by-side code comparison",
+            "Unified diff view",
+            "Line-level matching",
+            "Word-level matching",
+            "File upload support",
+            "Dark mode and light mode",
+            "Syntax highlighting",
+            "No sign-up required"
+        ]
+    }
+    </script>
+
     <!-- Favicon (SVG image) -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+
+    <!-- Preconnect for faster resource loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
     <!-- Google Fonts for Modern Typography -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Diff2Html CSS -->
@@ -537,92 +605,108 @@
 
 <body>
 
-    <div class="main-wrapper">
+    <main class="main-wrapper" role="main">
         <div class="container">
-            <h1 class="app-title">
-                <div class="logo-box">
-                    <svg class="app-logo" height="28" viewBox="0 0 24 24" width="28" fill="none" stroke="currentColor"
-                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
-                        <path d="M5 12V5a2 2 0 0 1 2-2h7.5L19 7.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2"></path>
-                        <path d="M11 14h-4"></path>
-                        <path d="M11 18h-4"></path>
-                        <path d="M7 14h.01"></path>
-                        <path d="M7 18h.01"></path>
-                        <path d="M15 14h4"></path>
-                        <path d="M15 18h4"></path>
-                        <path d="M12 12v8"></path>
-                    </svg>
-                </div>
-                <div>
-                    <span class="gradient-text">Code</span> Differencer Pro
-                </div>
-            </h1>
+            <header>
+                <h1 class="app-title">
+                    <div class="logo-box" aria-hidden="true">
+                        <svg class="app-logo" height="28" viewBox="0 0 24 24" width="28" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Code Differencer Pro logo">
+                            <title>Code Differencer Pro</title>
+                            <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+                            <path d="M5 12V5a2 2 0 0 1 2-2h7.5L19 7.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2"></path>
+                            <path d="M11 14h-4"></path>
+                            <path d="M11 18h-4"></path>
+                            <path d="M7 14h.01"></path>
+                            <path d="M7 18h.01"></path>
+                            <path d="M15 14h4"></path>
+                            <path d="M15 18h4"></path>
+                            <path d="M12 12v8"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="gradient-text">Code</span> Differencer Pro
+                    </div>
+                </h1>
+                <p style="color: var(--text-muted); font-size: 15px; margin-top: -20px; margin-bottom: 24px;">Free online code comparison tool — paste or upload code to instantly see differences with syntax highlighting.</p>
+            </header>
 
-            <div class="input-container">
-                <div class="input-box">
-                    <div class="header-row">
-                        <label for="old-script">Original Code (Old)</label>
-                        <input type="file" id="old-file-input">
+            <section aria-label="Code input">
+                <h2 class="sr-only">Input Code to Compare</h2>
+                <div class="input-container">
+                    <div class="input-box">
+                        <div class="header-row">
+                            <label for="old-script">Original Code (Old)</label>
+                            <input type="file" id="old-file-input" aria-label="Upload original code file" accept=".txt,.js,.ts,.py,.java,.c,.cpp,.html,.css,.json,.xml,.rb,.go,.rs,.php,.sh,.md,.yml,.yaml">
+                        </div>
+                        <textarea id="old-script" placeholder="Paste old script here, or select a file above..." aria-label="Original code input"></textarea>
                     </div>
-                    <textarea id="old-script" placeholder="Paste old script here, or select a file above..."></textarea>
-                </div>
-                <div class="input-box">
-                    <div class="header-row">
-                        <label for="new-script">Modified Code (New)</label>
-                        <input type="file" id="new-file-input">
+                    <div class="input-box">
+                        <div class="header-row">
+                            <label for="new-script">Modified Code (New)</label>
+                            <input type="file" id="new-file-input" aria-label="Upload modified code file" accept=".txt,.js,.ts,.py,.java,.c,.cpp,.html,.css,.json,.xml,.rb,.go,.rs,.php,.sh,.md,.yml,.yaml">
+                        </div>
+                        <textarea id="new-script" placeholder="Paste new script here, or select a file above..." aria-label="Modified code input"></textarea>
                     </div>
-                    <textarea id="new-script" placeholder="Paste new script here, or select a file above..."></textarea>
                 </div>
-            </div>
+            </section>
 
-            <div class="controls">
-                <div class="options">
-                    <div class="options-group">
-                        <label>
-                            <input type="radio" name="output-format" value="line-by-line" checked>
-                            <span>Unified</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="output-format" value="side-by-side">
-                            <span>Split</span>
-                        </label>
+            <section aria-label="Comparison options">
+                <h2 class="sr-only">Diff Options</h2>
+                <div class="controls">
+                    <div class="options">
+                        <fieldset class="options-group" style="border:none; margin:0; padding:4px;">
+                            <legend class="sr-only">Output format</legend>
+                            <label>
+                                <input type="radio" name="output-format" value="line-by-line" checked>
+                                <span>Unified</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="output-format" value="side-by-side">
+                                <span>Split</span>
+                            </label>
+                        </fieldset>
+                        <fieldset class="options-group" style="border:none; margin:0; padding:4px;">
+                            <legend class="sr-only">Matching mode</legend>
+                            <label>
+                                <input type="radio" name="matching" value="lines" checked>
+                                <span>Line Matching</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="matching" value="words">
+                                <span>Word Matching</span>
+                            </label>
+                        </fieldset>
+                        <fieldset class="options-group" style="border:none; margin:0; padding:4px;">
+                            <legend class="sr-only">Color theme</legend>
+                            <label>
+                                <input type="radio" name="theme" value="light" checked>
+                                <span>Light Mode</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="theme" value="dark">
+                                <span>Dark Mode</span>
+                            </label>
+                        </fieldset>
                     </div>
-                    <div class="options-group">
-                        <label>
-                            <input type="radio" name="matching" value="lines" checked>
-                            <span>Line Matching</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="matching" value="words">
-                            <span>Word Matching</span>
-                        </label>
-                    </div>
-                    <div class="options-group">
-                        <label>
-                            <input type="radio" name="theme" value="light" checked>
-                            <span>Light Mode</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="theme" value="dark">
-                            <span>Dark Mode</span>
-                        </label>
-                    </div>
+                    <button class="btn" id="compare-btn" aria-label="Compare code changes">Compare Changes</button>
                 </div>
-                <button class="btn" id="compare-btn">Compare Changes</button>
-            </div>
+            </section>
 
-            <div id="diff-output"></div>
+            <section aria-label="Diff output results">
+                <h2 class="sr-only">Comparison Results</h2>
+                <article id="diff-output" aria-live="polite"></article>
+            </section>
         </div>
-    </div>
+    </main>
 
     <footer class="app-footer">
         <div class="footer-left">
             &copy; 2026 <span>Loganadan M</span>. All rights reserved.
         </div>
-        <div class="footer-right">
+        <nav class="footer-right" aria-label="Footer navigation">
             <span>Code Differencer Pro v1.0</span>
-        </div>
+        </nav>
     </footer>
 
     <!-- jsdiff for generating diff string -->
@@ -698,6 +782,30 @@
         // Initialize empty diff viewer area
         document.getElementById('diff-output').innerHTML = '<div style="padding: 60px 20px; text-align: center; color: var(--text-muted); font-size: 15px;">Diff will appear here once you paste your code...</div>';
     </script>
+
+    <!-- Screen-reader-only utility class -->
+    <style>
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+
+    <!-- Noscript fallback for SEO crawlers -->
+    <noscript>
+        <div style="padding: 40px; text-align: center; font-family: sans-serif;">
+            <h2>Code Differencer Pro</h2>
+            <p>Code Differencer Pro is a free online tool for comparing code. It shows differences between two code snippets side-by-side or in a unified view with syntax highlighting, line matching, and word-level diffs.</p>
+            <p>Please enable JavaScript to use this application.</p>
+        </div>
+    </noscript>
 
 </body>
 
