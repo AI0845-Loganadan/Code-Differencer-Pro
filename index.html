@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,8 @@
     <!-- Google Fonts for Modern Typography -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Diff2Html CSS -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/diff2html/bundles/css/diff2html.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/diff2html/bundles/css/diff2html.min.css" />
     <style>
         :root {
             /* Premium Minimal Light Mode */
@@ -17,7 +19,7 @@
             --pattern-color: rgba(203, 213, 225, 0.4);
             --glow-1: rgba(59, 130, 246, 0.15);
             --glow-2: rgba(16, 185, 129, 0.15);
-            
+
             --card-bg: rgba(255, 255, 255, 0.85);
             --text-color: #1e293b;
             --text-muted: #64748b;
@@ -33,8 +35,8 @@
             --radio-text: #64748b;
             --radio-checked-text: #0f172a;
             --shadow-color: rgba(15, 23, 42, 0.04);
-            --card-shadow: 0 20px 40px -10px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.02), 0 0 0 1px rgba(255,255,255,0.5) inset;
-            
+            --card-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02), 0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+
             /* Diff specific colors for light mode (GitHub Authentic) */
             --diff-header-bg: #f8fafc;
             --diff-header-text: #1e293b;
@@ -42,12 +44,12 @@
             --diff-hunk-bg: #eff6ff;
             --diff-hunk-text: #2563eb;
             --diff-hunk-num-bg: #dbeafe;
-            
+
             --diff-ins-bg: #ecfdf5;
             --diff-ins-num-bg: #d1fae5;
             --diff-ins-word-bg: #a7f3d0;
             --diff-ins-num-text: #1e293b;
-            
+
             --diff-del-bg: #fef2f2;
             --diff-del-num-bg: #fee2e2;
             --diff-del-word-bg: #fecaca;
@@ -60,7 +62,7 @@
             --pattern-color: rgba(30, 41, 59, 0.6);
             --glow-1: rgba(59, 130, 246, 0.12);
             --glow-2: rgba(16, 185, 129, 0.12);
-            
+
             --card-bg: rgba(15, 23, 42, 0.7);
             --text-color: #f8fafc;
             --text-muted: #94a3b8;
@@ -76,7 +78,7 @@
             --radio-text: #94a3b8;
             --radio-checked-text: #f8fafc;
             --shadow-color: rgba(0, 0, 0, 0.5);
-            --card-shadow: 0 20px 40px -10px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.05);
+            --card-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.05);
 
             /* Diff specific colors for dark mode (GitHub Authentic) */
             --diff-header-bg: #1e293b;
@@ -85,12 +87,12 @@
             --diff-hunk-bg: rgba(59, 130, 246, 0.1);
             --diff-hunk-text: #60a5fa;
             --diff-hunk-num-bg: rgba(59, 130, 246, 0.2);
-            
+
             --diff-ins-bg: rgba(16, 185, 129, 0.1);
             --diff-ins-num-bg: rgba(16, 185, 129, 0.2);
             --diff-ins-word-bg: rgba(16, 185, 129, 0.3);
             --diff-ins-num-text: #f8fafc;
-            
+
             --diff-del-bg: rgba(239, 68, 68, 0.1);
             --diff-del-num-bg: rgba(239, 68, 68, 0.2);
             --diff-del-word-bg: rgba(239, 68, 68, 0.3);
@@ -106,11 +108,18 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
-            padding: 40px 20px;
+            padding: 0;
             min-height: 100%;
+            display: flex;
+            flex-direction: column;
             transition: background-color 0.4s ease, color 0.4s ease;
             position: relative;
             z-index: 0;
+        }
+
+        .main-wrapper {
+            flex: 1;
+            padding: 40px 20px;
         }
 
         .container {
@@ -192,7 +201,7 @@
             width: 180px;
             cursor: pointer;
         }
-        
+
         input[type="file"]::file-selector-button {
             background-color: var(--radio-bg);
             border: 1px solid var(--border-color);
@@ -265,7 +274,7 @@
             transform: translateY(-1px);
             box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
         }
-        
+
         .btn:active {
             transform: translateY(1px);
             box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
@@ -303,7 +312,7 @@
             display: none;
         }
 
-        .options-group input[type="radio"]:checked + span {
+        .options-group input[type="radio"]:checked+span {
             background-color: var(--radio-checked-bg);
             color: var(--radio-checked-text);
             box-shadow: 0 2px 6px var(--shadow-color);
@@ -316,7 +325,7 @@
             border-radius: 6px;
             border: 1px solid transparent;
         }
-        
+
         #diff-output {
             background: var(--input-bg);
             border: 1px solid var(--border-color);
@@ -325,27 +334,27 @@
             box-shadow: inset 0 2px 4px var(--shadow-color);
             transition: all 0.4s ease;
         }
-        
+
         /* Overriding Diff2Html for Minimal Design */
-        
+
         .d2h-wrapper {
             color: var(--text-color);
             background-color: transparent;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
         }
-        
+
         .d2h-file-header {
             background-color: var(--diff-header-bg);
             border-bottom: 1px solid var(--border-color);
             color: var(--diff-header-text);
             padding: 12px 20px;
         }
-        
+
         .d2h-file-name-wrapper {
             font-size: 14px;
             font-weight: 600;
         }
-        
+
         .d2h-file-wrapper {
             border: none;
             margin-bottom: 0;
@@ -353,12 +362,14 @@
         }
 
         /* Typography for code */
-        .d2h-code-line, .d2h-code-linenumber, .d2h-code-line-prefix {
+        .d2h-code-line,
+        .d2h-code-linenumber,
+        .d2h-code-line-prefix {
             font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
             font-size: 13px;
             line-height: 22px;
         }
-        
+
         .d2h-code-linenumber {
             border: none;
             color: var(--text-muted);
@@ -368,7 +379,7 @@
             width: 50px;
             min-width: 50px;
         }
-        
+
         .d2h-code-line-ctn {
             padding-left: 10px;
         }
@@ -378,35 +389,39 @@
             background-color: var(--diff-del-bg);
             border: none;
         }
+
         .d2h-del .d2h-code-linenumber {
             background-color: var(--diff-del-num-bg);
             border: none;
             color: var(--diff-del-num-text);
         }
+
         .d2h-del del {
             background-color: var(--diff-del-word-bg);
             color: inherit;
             text-decoration: none;
             border-radius: 3px;
         }
-        
+
         /* Additions */
         .d2h-ins {
             background-color: var(--diff-ins-bg);
             border: none;
         }
+
         .d2h-ins .d2h-code-linenumber {
             background-color: var(--diff-ins-num-bg);
             border: none;
             color: var(--diff-ins-num-text);
         }
+
         .d2h-ins ins {
             background-color: var(--diff-ins-word-bg);
             color: inherit;
             text-decoration: none;
             border-radius: 3px;
         }
-        
+
         /* Empty / placeholders */
         .d2h-emptyplaceholder {
             background-color: var(--diff-empty-bg);
@@ -419,12 +434,14 @@
             color: var(--diff-hunk-text);
             border: none;
         }
+
         .d2h-info .d2h-code-linenumber {
             background-color: var(--diff-hunk-num-bg);
             border: none;
             color: var(--text-muted);
         }
-        .d2h-info .d2h-code-line-prefix, 
+
+        .d2h-info .d2h-code-line-prefix,
         .d2h-info .d2h-code-line-ctn {
             color: var(--diff-hunk-text);
         }
@@ -436,10 +453,15 @@
             width: 24px;
             text-align: center;
         }
-        
+
         /* Eliminate custom borders from diff2html */
-        .d2h-file-list-wrapper { display: none; }
-        tbody.d2h-diff-tbody > tr > td { border: none; }
+        .d2h-file-list-wrapper {
+            display: none;
+        }
+
+        tbody.d2h-diff-tbody>tr>td {
+            border: none;
+        }
 
         /* Split view specific fixes */
         .d2h-file-side-diff {
@@ -448,178 +470,235 @@
             overflow-y: hidden;
             width: 50%;
         }
-        .d2h-file-side-diff + .d2h-file-side-diff {
+
+        .d2h-file-side-diff+.d2h-file-side-diff {
             border-left: 1px solid var(--border-color);
         }
-        
+
         /* Custom scrollbar for modern feel */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
         }
+
         ::-webkit-scrollbar-track {
-            background: transparent; 
+            background: transparent;
         }
+
         ::-webkit-scrollbar-thumb {
-            background: var(--border-color); 
+            background: var(--border-color);
             border-radius: 4px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--text-muted); 
+            background: var(--text-muted);
+        }
+
+        .app-footer {
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+            padding: 24px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--controls-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .app-footer .footer-left {
+            font-weight: 500;
+        }
+
+        .app-footer .footer-left span {
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .app-footer .footer-right {
+            display: flex;
+            gap: 16px;
+            font-weight: 500;
+        }
+
+        .app-footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .app-footer a:hover {
+            color: var(--border-focus);
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h1 class="app-title">
-        <div class="logo-box">
-            <svg class="app-logo" height="28" viewBox="0 0 24 24" width="28" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
-                <path d="M5 12V5a2 2 0 0 1 2-2h7.5L19 7.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2"></path>
-                <path d="M11 14h-4"></path>
-                <path d="M11 18h-4"></path>
-                <path d="M7 14h.01"></path>
-                <path d="M7 18h.01"></path>
-                <path d="M15 14h4"></path>
-                <path d="M15 18h4"></path>
-                <path d="M12 12v8"></path>
-            </svg>
-        </div>
-        <div>
-            <span class="gradient-text">Code</span> Differencer Pro
-        </div>
-    </h1>
-    
-    <div class="input-container">
-        <div class="input-box">
-            <div class="header-row">
-                <label for="old-script">Original Code (Old)</label>
-                <input type="file" id="old-file-input">
+    <div class="main-wrapper">
+        <div class="container">
+            <h1 class="app-title">
+                <div class="logo-box">
+                    <svg class="app-logo" height="28" viewBox="0 0 24 24" width="28" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+                        <path d="M5 12V5a2 2 0 0 1 2-2h7.5L19 7.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2"></path>
+                        <path d="M11 14h-4"></path>
+                        <path d="M11 18h-4"></path>
+                        <path d="M7 14h.01"></path>
+                        <path d="M7 18h.01"></path>
+                        <path d="M15 14h4"></path>
+                        <path d="M15 18h4"></path>
+                        <path d="M12 12v8"></path>
+                    </svg>
+                </div>
+                <div>
+                    <span class="gradient-text">Code</span> Differencer Pro
+                </div>
+            </h1>
+
+            <div class="input-container">
+                <div class="input-box">
+                    <div class="header-row">
+                        <label for="old-script">Original Code (Old)</label>
+                        <input type="file" id="old-file-input">
+                    </div>
+                    <textarea id="old-script" placeholder="Paste old script here, or select a file above..."></textarea>
+                </div>
+                <div class="input-box">
+                    <div class="header-row">
+                        <label for="new-script">Modified Code (New)</label>
+                        <input type="file" id="new-file-input">
+                    </div>
+                    <textarea id="new-script" placeholder="Paste new script here, or select a file above..."></textarea>
+                </div>
             </div>
-            <textarea id="old-script" placeholder="Paste old script here, or select a file above..."></textarea>
-        </div>
-        <div class="input-box">
-            <div class="header-row">
-                <label for="new-script">Modified Code (New)</label>
-                <input type="file" id="new-file-input">
+
+            <div class="controls">
+                <div class="options">
+                    <div class="options-group">
+                        <label>
+                            <input type="radio" name="output-format" value="line-by-line" checked>
+                            <span>Unified</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="output-format" value="side-by-side">
+                            <span>Split</span>
+                        </label>
+                    </div>
+                    <div class="options-group">
+                        <label>
+                            <input type="radio" name="matching" value="lines" checked>
+                            <span>Line Matching</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="matching" value="words">
+                            <span>Word Matching</span>
+                        </label>
+                    </div>
+                    <div class="options-group">
+                        <label>
+                            <input type="radio" name="theme" value="light" checked>
+                            <span>Light Mode</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="theme" value="dark">
+                            <span>Dark Mode</span>
+                        </label>
+                    </div>
+                </div>
+                <button class="btn" id="compare-btn">Compare Changes</button>
             </div>
-            <textarea id="new-script" placeholder="Paste new script here, or select a file above..."></textarea>
+
+            <div id="diff-output"></div>
         </div>
     </div>
 
-    <div class="controls">
-        <div class="options">
-            <div class="options-group">
-                <label>
-                    <input type="radio" name="output-format" value="line-by-line" checked>
-                    <span>Unified</span>
-                </label>
-                <label>
-                    <input type="radio" name="output-format" value="side-by-side">
-                    <span>Split</span>
-                </label>
-            </div>
-            <div class="options-group">
-                <label>
-                    <input type="radio" name="matching" value="lines" checked>
-                    <span>Line Matching</span>
-                </label>
-                <label>
-                    <input type="radio" name="matching" value="words">
-                    <span>Word Matching</span>
-                </label>
-            </div>
-            <div class="options-group">
-                <label>
-                    <input type="radio" name="theme" value="light" checked>
-                    <span>Light Mode</span>
-                </label>
-                <label>
-                    <input type="radio" name="theme" value="dark">
-                    <span>Dark Mode</span>
-                </label>
-            </div>
+    <footer class="app-footer">
+        <div class="footer-left">
+            &copy; 2026 <span>Loganadan M</span>. All rights reserved.
         </div>
-        <button class="btn" id="compare-btn">Compare Changes</button>
-    </div>
+        <div class="footer-right">
+            <span>Code Differencer Pro v1.0</span>
+        </div>
+    </footer>
 
-    <div id="diff-output"></div>
-</div>
+    <!-- jsdiff for generating diff string -->
+    <script src="https://cdn.jsdelivr.net/npm/diff@5.1.0/dist/diff.min.js"></script>
+    <!-- Diff2Html for rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/diff2html/bundles/js/diff2html.min.js"></script>
 
-<!-- jsdiff for generating diff string -->
-<script src="https://cdn.jsdelivr.net/npm/diff@5.1.0/dist/diff.min.js"></script>
-<!-- Diff2Html for rendering -->
-<script src="https://cdn.jsdelivr.net/npm/diff2html/bundles/js/diff2html.min.js"></script>
+    <script>
+        document.getElementById('compare-btn').addEventListener('click', generateDiff);
 
-<script>
-    document.getElementById('compare-btn').addEventListener('click', generateDiff);
-    
-    // Listen for radio button changes to update the view instantly
-    document.querySelectorAll('input[type="radio"]').forEach(radio => {
-        radio.addEventListener('change', (e) => {
-            if (e.target.name === 'theme') {
-                document.documentElement.setAttribute('data-theme', e.target.value);
-            }
-            if (document.getElementById('old-script').value || document.getElementById('new-script').value) {
-                generateDiff();
-            }
+        // Listen for radio button changes to update the view instantly
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                if (e.target.name === 'theme') {
+                    document.documentElement.setAttribute('data-theme', e.target.value);
+                }
+                if (document.getElementById('old-script').value || document.getElementById('new-script').value) {
+                    generateDiff();
+                }
+            });
         });
-    });
 
-    // Check system preference for initial theme
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector('input[name="theme"][value="dark"]').checked = true;
-        document.documentElement.setAttribute('data-theme', 'dark');
-    }
-
-    // Handle file uploads
-    function handleFileUpload(inputId, textareaId) {
-        document.getElementById(inputId).addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (!file) return;
-            
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                document.getElementById(textareaId).value = e.target.result;
-                generateDiff();
-            };
-            reader.readAsText(file);
-        });
-    }
-
-    handleFileUpload('old-file-input', 'old-script');
-    handleFileUpload('new-file-input', 'new-script');
-
-    function generateDiff() {
-        const oldScript = document.getElementById('old-script').value || '';
-        const newScript = document.getElementById('new-script').value || '';
-        const outputFormat = document.querySelector('input[name="output-format"]:checked').value;
-        const matching = document.querySelector('input[name="matching"]:checked').value;
-        const theme = document.querySelector('input[name="theme"]:checked').value;
-
-        if (!oldScript && !newScript) {
-            document.getElementById('diff-output').innerHTML = '<div style="padding: 60px 20px; text-align: center; color: var(--text-muted); font-size: 15px;">Please enter or select both old and new scripts to compare.</div>';
-            return;
+        // Check system preference for initial theme
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.querySelector('input[name="theme"][value="dark"]').checked = true;
+            document.documentElement.setAttribute('data-theme', 'dark');
         }
 
-        const diffString = Diff.createPatch('script.txt', oldScript, newScript, '', '', { context: 3 });
+        // Handle file uploads
+        function handleFileUpload(inputId, textareaId) {
+            document.getElementById(inputId).addEventListener('change', function (e) {
+                const file = e.target.files[0];
+                if (!file) return;
 
-        const configuration = {
-            drawFileList: false,
-            matching: matching,
-            outputFormat: outputFormat,
-            renderNothingWhenEmpty: false,
-            colorScheme: theme
-        };
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById(textareaId).value = e.target.result;
+                    generateDiff();
+                };
+                reader.readAsText(file);
+            });
+        }
 
-        const diffHtml = Diff2Html.html(diffString, configuration);
-        document.getElementById('diff-output').innerHTML = diffHtml;
-    }
+        handleFileUpload('old-file-input', 'old-script');
+        handleFileUpload('new-file-input', 'new-script');
 
-    // Initialize empty diff viewer area
-    document.getElementById('diff-output').innerHTML = '<div style="padding: 60px 20px; text-align: center; color: var(--text-muted); font-size: 15px;">Diff will appear here once you paste your code...</div>';
-</script>
+        function generateDiff() {
+            const oldScript = document.getElementById('old-script').value || '';
+            const newScript = document.getElementById('new-script').value || '';
+            const outputFormat = document.querySelector('input[name="output-format"]:checked').value;
+            const matching = document.querySelector('input[name="matching"]:checked').value;
+            const theme = document.querySelector('input[name="theme"]:checked').value;
+
+            if (!oldScript && !newScript) {
+                document.getElementById('diff-output').innerHTML = '<div style="padding: 60px 20px; text-align: center; color: var(--text-muted); font-size: 15px;">Please enter or select both old and new scripts to compare.</div>';
+                return;
+            }
+
+            const diffString = Diff.createPatch('script.txt', oldScript, newScript, '', '', { context: 3 });
+
+            const configuration = {
+                drawFileList: false,
+                matching: matching,
+                outputFormat: outputFormat,
+                renderNothingWhenEmpty: false,
+                colorScheme: theme
+            };
+
+            const diffHtml = Diff2Html.html(diffString, configuration);
+            document.getElementById('diff-output').innerHTML = diffHtml;
+        }
+
+        // Initialize empty diff viewer area
+        document.getElementById('diff-output').innerHTML = '<div style="padding: 60px 20px; text-align: center; color: var(--text-muted); font-size: 15px;">Diff will appear here once you paste your code...</div>';
+    </script>
 
 </body>
+
 </html>
