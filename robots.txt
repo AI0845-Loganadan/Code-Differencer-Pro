@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ai0845-loganadan.github.io/Code-Differencer-Pro/sitemap.xml
