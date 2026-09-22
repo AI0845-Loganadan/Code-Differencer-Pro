@@ -165,11 +165,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
-    <!-- Google Fonts for Modern Typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Diff2Html CSS -->
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.jsdelivr.net/npm/diff2html/bundles/css/diff2html.min.css" />
+    <!-- Preload critical JS resources -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/diff@5.1.0/dist/diff.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/diff2html/bundles/js/diff2html.min.js" as="script">
+
+    <!-- Google Fonts — loaded async to avoid render-blocking -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+    <!-- Diff2Html CSS — loaded async (only needed when diff renders) -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/diff2html/bundles/css/diff2html.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/diff2html/bundles/css/diff2html.min.css"></noscript>
     <style>
         :root {
             /* Premium Minimal Light Mode */
@@ -270,9 +275,12 @@
             min-height: 100%;
             display: flex;
             flex-direction: column;
-            transition: background-color 0.4s ease, color 0.4s ease;
             position: relative;
             z-index: 0;
+        }
+
+        body.transitions-enabled {
+            transition: background-color 0.4s ease, color 0.4s ease;
         }
 
         .main-wrapper {
@@ -284,13 +292,14 @@
             max-width: 1400px;
             margin: 0 auto;
             background: var(--card-bg);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
             border: 1px solid var(--border-color);
             border-radius: 24px;
             padding: 40px;
             box-shadow: var(--card-shadow);
-            transition: all 0.4s ease;
+        }
+
+        body.transitions-enabled .container {
+            transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
         }
 
         .app-title {
@@ -368,7 +377,7 @@
             padding: 4px 10px;
             font-weight: 500;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: background-color 0.2s, border-color 0.2s;
             margin-right: 10px;
         }
 
@@ -379,6 +388,7 @@
 
         .input-box textarea {
             height: 320px;
+            min-height: 320px;
             font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
             font-size: 13px;
             line-height: 1.5;
@@ -391,7 +401,7 @@
             white-space: pre;
             overflow-wrap: normal;
             overflow-x: auto;
-            transition: all 0.3s ease;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
             box-shadow: inset 0 2px 4px var(--shadow-color);
         }
 
@@ -410,8 +420,10 @@
             padding: 16px 20px;
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            backdrop-filter: blur(10px);
-            transition: all 0.4s ease;
+        }
+
+        body.transitions-enabled .controls {
+            transition: background-color 0.4s ease, border-color 0.4s ease;
         }
 
         .btn {
@@ -424,7 +436,7 @@
             font-weight: 600;
             cursor: pointer;
             box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
-            transition: all 0.2s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
         }
 
         .btn:hover {
@@ -452,7 +464,10 @@
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 4px;
-            transition: all 0.3s ease;
+        }
+
+        body.transitions-enabled .options-group {
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
         .options-group label {
@@ -463,7 +478,7 @@
             border-radius: 6px;
             user-select: none;
             color: var(--radio-text);
-            transition: all 0.2s ease;
+            transition: color 0.2s ease, background-color 0.2s ease;
         }
 
         .options-group input[type="radio"] {
@@ -490,7 +505,10 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: inset 0 2px 4px var(--shadow-color);
-            transition: all 0.4s ease;
+        }
+
+        body.transitions-enabled #diff-output {
+            transition: background-color 0.4s ease, border-color 0.4s ease;
         }
 
         /* Overriding Diff2Html for Minimal Design */
@@ -660,8 +678,6 @@
             justify-content: space-between;
             align-items: center;
             background: var(--controls-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             font-size: 13px;
             color: var(--text-muted);
         }
@@ -732,8 +748,7 @@
             border: 1px solid var(--border-color);
             border-radius: 16px;
             padding: 28px;
-            backdrop-filter: blur(12px);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .feature-card:hover {
@@ -774,7 +789,6 @@
             border: 1px solid var(--border-color);
             border-radius: 16px;
             padding: 24px;
-            backdrop-filter: blur(12px);
         }
 
         .step-number {
@@ -816,7 +830,6 @@
             border: 1px solid var(--border-color);
             border-radius: 16px;
             padding: 24px;
-            backdrop-filter: blur(12px);
         }
 
         .use-case h3 {
@@ -843,9 +856,19 @@
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            backdrop-filter: blur(12px);
             overflow: hidden;
-            transition: all 0.3s ease;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
 
         .faq-item summary {
@@ -1153,93 +1176,90 @@
     </footer>
 
     <!-- jsdiff for generating diff string -->
-    <script src="https://cdn.jsdelivr.net/npm/diff@5.1.0/dist/diff.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/diff@5.1.0/dist/diff.min.js"></script>
     <!-- Diff2Html for rendering -->
-    <script src="https://cdn.jsdelivr.net/npm/diff2html/bundles/js/diff2html.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/diff2html/bundles/js/diff2html.min.js"></script>
 
     <script>
-        document.getElementById('compare-btn').addEventListener('click', generateDiff);
-
-        // Listen for radio button changes to update the view instantly
-        document.querySelectorAll('input[type="radio"]').forEach(radio => {
-            radio.addEventListener('change', (e) => {
-                if (e.target.name === 'theme') {
-                    document.documentElement.setAttribute('data-theme', e.target.value);
-                }
-                if (document.getElementById('old-script').value || document.getElementById('new-script').value) {
-                    generateDiff();
-                }
+        // Enable CSS transitions only after initial paint to prevent CLS
+        requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+                document.body.classList.add('transitions-enabled');
             });
         });
 
-        // Check system preference for initial theme
+        // Check system preference for initial theme (run immediately, no library dependency)
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.querySelector('input[name="theme"][value="dark"]').checked = true;
             document.documentElement.setAttribute('data-theme', 'dark');
         }
 
-        // Handle file uploads
-        function handleFileUpload(inputId, textareaId) {
-            document.getElementById(inputId).addEventListener('change', function (e) {
-                const file = e.target.files[0];
-                if (!file) return;
+        // Wait for deferred scripts (Diff, Diff2Html) to load
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('compare-btn').addEventListener('click', generateDiff);
 
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    document.getElementById(textareaId).value = e.target.result;
-                    generateDiff();
-                };
-                reader.readAsText(file);
+            // Listen for radio button changes to update the view instantly
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    if (e.target.name === 'theme') {
+                        document.documentElement.setAttribute('data-theme', e.target.value);
+                    }
+                    if (document.getElementById('old-script').value || document.getElementById('new-script').value) {
+                        generateDiff();
+                    }
+                });
             });
-        }
 
-        handleFileUpload('old-file-input', 'old-script');
-        handleFileUpload('new-file-input', 'new-script');
+            // Handle file uploads
+            function handleFileUpload(inputId, textareaId) {
+                document.getElementById(inputId).addEventListener('change', function (e) {
+                    const file = e.target.files[0];
+                    if (!file) return;
 
-        function generateDiff() {
-            const oldScript = document.getElementById('old-script').value || '';
-            const newScript = document.getElementById('new-script').value || '';
-            const outputFormat = document.querySelector('input[name="output-format"]:checked').value;
-            const matching = document.querySelector('input[name="matching"]:checked').value;
-            const theme = document.querySelector('input[name="theme"]:checked').value;
-
-            if (!oldScript && !newScript) {
-                document.getElementById('diff-output').innerHTML = '<div style="padding: 60px 20px; text-align: center; color: var(--text-muted); font-size: 15px;">Please enter or select both old and new scripts to compare.</div>';
-                return;
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        document.getElementById(textareaId).value = e.target.result;
+                        generateDiff();
+                    };
+                    reader.readAsText(file);
+                });
             }
 
-            const diffString = Diff.createPatch('script.txt', oldScript, newScript, '', '', { context: 3 });
+            handleFileUpload('old-file-input', 'old-script');
+            handleFileUpload('new-file-input', 'new-script');
 
-            const configuration = {
-                drawFileList: false,
-                matching: matching,
-                outputFormat: outputFormat,
-                renderNothingWhenEmpty: false,
-                colorScheme: theme
-            };
+            function generateDiff() {
+                const oldScript = document.getElementById('old-script').value || '';
+                const newScript = document.getElementById('new-script').value || '';
+                const outputFormat = document.querySelector('input[name="output-format"]:checked').value;
+                const matching = document.querySelector('input[name="matching"]:checked').value;
+                const theme = document.querySelector('input[name="theme"]:checked').value;
 
-            const diffHtml = Diff2Html.html(diffString, configuration);
-            document.getElementById('diff-output').innerHTML = diffHtml;
-        }
+                if (!oldScript && !newScript) {
+                    document.getElementById('diff-output').innerHTML = '<div style="padding: 60px 20px; text-align: center; color: var(--text-muted); font-size: 15px;">Please enter or select both old and new scripts to compare.</div>';
+                    return;
+                }
 
-        // Initialize empty diff viewer area
-        document.getElementById('diff-output').innerHTML = '<div style="padding: 60px 20px; text-align: center; color: var(--text-muted); font-size: 15px;">Diff will appear here once you paste your code...</div>';
+                const diffString = Diff.createPatch('script.txt', oldScript, newScript, '', '', { context: 3 });
+
+                const configuration = {
+                    drawFileList: false,
+                    matching: matching,
+                    outputFormat: outputFormat,
+                    renderNothingWhenEmpty: false,
+                    colorScheme: theme
+                };
+
+                const diffHtml = Diff2Html.html(diffString, configuration);
+                document.getElementById('diff-output').innerHTML = diffHtml;
+            }
+
+            // Initialize empty diff viewer area
+            document.getElementById('diff-output').innerHTML = '<div style="padding: 60px 20px; text-align: center; color: var(--text-muted); font-size: 15px;">Diff will appear here once you paste your code...</div>';
+        }); // end DOMContentLoaded
     </script>
 
-    <!-- Screen-reader-only utility class -->
-    <style>
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-    </style>
+
 
     <!-- Noscript fallback for SEO crawlers -->
     <noscript>
